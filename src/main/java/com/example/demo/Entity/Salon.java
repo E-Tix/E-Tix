@@ -18,18 +18,18 @@ public class Salon{
 
     public Salon(){}
 
-    public Salon(Long salonID, String salonAdi, String adres) {
-        this.salonID = salonID;
+    public Salon(Long salonId, String salonAdi, String adres) {
+        this.salonId = salonId;
         this.salonAdi = salonAdi;
         this.adres = adres;
     }
 
-    public Long getSalonID() {
-        return salonID;
+    public Long getSalonId() {
+        return salonId;
     }
 
-    public void setSalonID(Long salonID) {
-        this.salonID = salonID;
+    public void setSalonId(Long salonId) {
+        this.salonId = salonId;
     }
 
     public String getSalonAdi() {

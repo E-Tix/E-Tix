@@ -13,27 +13,33 @@ public class Koltuk{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long koltukID;
+    private Long koltukId;
+
+    @OneToOne(mappedBy = "koltuk")
+    private SeansBiletKoltuk seansBiletKoltuklar;
+
     @ManyToOne
     private Salon salon;
+
     private int satir;
     private int sutun;
 
     public Koltuk(){}
 
-    public Koltuk(Long koltukID, Salon salon, int satir, int sutun) {
-        this.koltukID = koltukID;
+    public Koltuk(Long koltukId, Bilet bilet, Salon salon, int satir, int sutun) {
+        this.koltukId = koltukId;
+        this.bilet = bilet;
         this.salon = salon;
         this.satir = satir;
         this.sutun = sutun;
     }
 
-    public Long getKoltukID() {
-        return koltukID;
+    public Long getKoltukId() {
+        return koltukId;
     }
 
-    public void setKoltukID(Long koltukID) {
-        this.koltukID = koltukID;
+    public void setKoltukId(Long koltukId) {
+        this.koltukId = koltukId;
     }
 
     public Salon getSalon() {

@@ -9,15 +9,18 @@ public class EtkinlikSalonSeans {
     private EtkinlikSalonSeansId id; // Composite key burada tanımlanır
 
     @ManyToOne
+    @MapsId("etkinlikId")
     @JoinColumn(name = "etkinlik_id")
     private Etkinlik etkinlik;
 
     @ManyToOne
+    @MapsId("salonId")
     @JoinColumn(name = "salon_id")
     private Salon salon;
 
-    @ManyToOne
-    @JoinColumn(name = "seans_id")
+    @OneToOne
+    @MapsId("seansId")
+    @JoinColumn(name = "seans_id", unique = true)
     private Seans seans;
 
     // Getter ve Setter metodları

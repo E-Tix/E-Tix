@@ -14,31 +14,35 @@ public class Seans{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long seansID;
+    private Long seansId;
+
+    @OneToMany(mappedBy = "seans")
+    private List<SeansBiletKoltuk> seansBiletKoltukList;
+
+    @OneToOne(mappedBy = "seans")
+    private List<EtkinlikSalonSeans> etkinlikSalonSeansList;
+
     private Timestamp tarih;
     private Timestamp bitisTarih;
-    private boolean   tarihiGectiMi;
+    private boolean tarihiGectiMi;
     private Timestamp olusturulmaTarihi;
 
-    //Constructor
-    public Seans(){
+    public Seans(){}
 
-    }
-
-    public Seans(Long seansID, Timestamp tarih, Timestamp bitisTarih, boolean tarihiGectiMi, Timestamp olusturulmaTarihi) {
-        this.seansID = seansID;
+    public Seans(Long seansId, Timestamp tarih, Timestamp bitisTarih, boolean tarihiGectiMi, Timestamp olusturulmaTarihi) {
+        this.seansId = seansId;
         this.tarih = tarih;
         this.bitisTarih = bitisTarih;
         this.tarihiGectiMi = tarihiGectiMi;
         this.olusturulmaTarihi = olusturulmaTarihi;
     }
 
-    public Long getSeansID() {
-        return seansID;
+    public Long getSeansId() {
+        return seansId;
     }
 
-    public void setSeansID(Long seansID) {
-        this.seansID = seansID;
+    public void setSeansId(Long seansId) {
+        this.seansId = seansId;
     }
 
     public Timestamp getTarih() {

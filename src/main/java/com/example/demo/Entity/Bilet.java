@@ -13,30 +13,37 @@ import java.util.Set;
 @SessionScope
 public class Bilet{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long biletID;
-    private Boolean odendiMi;
-    private Float odenenMiktar;
-    private Timestamp olusturmaZamani;
+    @GeneratedValue(strategy = GenerationType.IdENTITY)
+    private Long biletId;
+
+    @OneToOne(mappedBy = "bilet")
+    private SeansBiletKoltuk seansBiletKoltuklar;
+
     @OneToMany(mappedBy = "bilet")
     private ArrayList<KullaniciBilet> kullanicilar;
 
+    private Boolean odendiMi;
+    private Float odenenMiktar;
+    private Timestamp olusturmaZamani;
+
+
     public Bilet(){}
 
-    public Bilet(Long biletID, Boolean odendiMi, Float odenenMiktar, Timestamp olusturmaZamani, ArrayList<KullaniciBilet> kullanicilar) {
-        this.biletID = biletID;
+    public Bilet(Long biletId, ArrayList<KullaniciBilet> kullanicilar, Koltuk koltuk, Boolean odendiMi, Float odenenMiktar, Timestamp olusturmaZamani) {
+        this.biletId = biletId;
+        this.kullanicilar = kullanicilar;
+        this.koltuk = koltuk;
         this.odendiMi = odendiMi;
         this.odenenMiktar = odenenMiktar;
         this.olusturmaZamani = olusturmaZamani;
-        this.kullanicilar = kullanicilar;
     }
 
-    public Long getBiletID() {
-        return biletID;
+    public Long getBiletId() {
+        return biletId;
     }
 
-    public void setBiletID(Long biletID) {
-        this.biletID = biletID;
+    public void setBiletId(Long biletId) {
+        this.biletId = biletId;
     }
 
     public Boolean getOdendiMi() {

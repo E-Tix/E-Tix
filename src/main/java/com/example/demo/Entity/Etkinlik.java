@@ -14,12 +14,19 @@ public class Etkinlik{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long etkinlikId;
+
     @ManyToOne
     private Organizator organizator;
+
     @ManyToOne
     private EtkinlikTur etkinlikTur;
+
     @ManyToOne
     private Sehir sehir;
+
+    @ManyToOne
+    private EtkinlikSalonSeans
+
     private String etkinlikAdi;
     private String kapakFotografi;
     private String etkinlikAciklamasi;

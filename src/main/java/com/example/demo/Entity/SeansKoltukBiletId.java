@@ -8,15 +8,17 @@ import java.util.Objects;
 @Embeddable
 public class SeansKoltukBiletId implements Serializable {
 
-    private Long KoltukID;
-    private Long SeansID;
+    private Long seansId;
+    private Long koltukId;
+    private Long biletId;
 
     public SeansKoltukBiletId(){
     }
 
-    public SeansKoltukBiletId(Long KoltukID, Long SeansID){
-        this.KoltukID = KoltukID;
-        this.SeansID = SeansID;
+    public SeansKoltukBiletId(Long seansId, Long koltukId, Long biletId) {
+        this.seansId = seansId;
+        this.koltukId = koltukId;
+        this.biletId = biletId;
     }
 
     @Override
@@ -24,12 +26,13 @@ public class SeansKoltukBiletId implements Serializable {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         SeansKoltukBiletId skb = (SeansKoltukBiletId) o;
-        return Objects.equals(KoltukID, skb.KoltukID) &&
-                Objects.equals(SeansID, skb.SeansID);
+        return  Objects.equals(seansId, skb.seansId) &&
+                Objects.equals(koltukId, skb.koltukId) &&
+                Objects.equals(biletId, skb.biletId);
     }
 
     @Override
     public int hashCode(){
-        return Objects.hash(KoltukID, SeansID);
+        return Objects.hash(seansId, koltukId, biletId);
     }
 }

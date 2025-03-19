@@ -9,17 +9,17 @@ import java.util.Objects;
 @Embeddable
 public class EtkinlikSalonSeansId implements Serializable {
 
-    private Long EtkinlikID;
-    private Long SalonID;
-    private Long SeansID;
+    private Long etkinlikID;
+    private Long salonID;
+    private Long seansID;
 
     public EtkinlikSalonSeansId() {
     }
 
-    public EtkinlikSalonSeansId(Long EtkinlikID, Long SalonID, Long SeansID) {
-        this.EtkinlikID = EtkinlikID;
-        this.SalonID = SalonID;
-        this.SeansID = SeansID;
+    public EtkinlikSalonSeansId(Long etkinlikID, Long salonID, Long seansID) {
+        this.etkinlikID = etkinlikID;
+        this.salonID = salonID;
+        this.seansID = seansID;
     }
 
     @Override
@@ -27,14 +27,14 @@ public class EtkinlikSalonSeansId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EtkinlikSalonSeansId essId = (EtkinlikSalonSeansId) o;
-        return Objects.equals(EtkinlikID, essId.EtkinlikID)
-                && Objects.equals(SalonID, essId.SalonID)
-                && Objects.equals(SeansID, essId.SeansID);
+        return Objects.equals(etkinlikID, essId.etkinlikID)
+                && Objects.equals(salonID, essId.salonID)
+                && Objects.equals(seansID, essId.seansID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(EtkinlikID, SalonID, SeansID);
+        return Objects.hash(etkinlikID, salonID, seansID);
     }
 
 }
