@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface SalonRepository extends JpaRepository<Salon,Long> {
 
-    Optional<Salon> findBySalonID(Long salonID);
+    Optional<Salon> indBySalonID(Long salonID);
 
 }
