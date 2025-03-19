@@ -10,8 +10,10 @@ import java.util.Optional;
 public interface KoltukRepository extends JpaRepository<Koltuk, Long> {
 
     Optional<Koltuk> findByKoltukID(Long koltukID);
-    Optional<Koltuk> findBySalon_SalonID(Long salonID);
+   //Optional<Koltuk> findBySalon_SalonID(Long salonID);
+
+    List<Koltuk>findBySalon_SalonID(Long salonID);
 
     //Belli bir salondaki bütün koltukları bulmak için
-    List<Koltuk> findBySalon(Salon salon);
+    Optional<List<Koltuk>> findBySalon(Salon salon);
 }
