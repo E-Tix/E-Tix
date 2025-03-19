@@ -10,7 +10,9 @@ public class EtkinlikTur {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "etkinlikTurID",unique = true,nullable = false)
     private Long etkinlikTurID;
+    @Column(name = "turAdi")
     private String turAdi;
 
     public EtkinlikTur(Long etkinlikTurID,String turAdi)

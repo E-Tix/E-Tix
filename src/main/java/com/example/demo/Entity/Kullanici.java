@@ -18,6 +18,7 @@ public class Kullanici{
     private Sehir sehir;
     @OneToMany(mappedBy = "kullanici")
     private ArrayList<KullaniciBilet> biletler;
+
     private String kullaniciAdi;
     private String adSoyad;
     private String sifre;

@@ -16,18 +16,28 @@ public class Organizator implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long organizatorID;
 
     //Etkinlik Listeleme
+
     @OneToMany(mappedBy = "organizator", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Etkinlik> etkinlik;
+    @Column(name = "adSoyad",nullable = false)
     private String adSoyad;
+    @Column(name = "vergiNo",nullable = false)
     private String vergiNo;
+    @Column(name = "email",nullable = false)
     private String email;
+    @Column(name = "sifre",nullable = false)
     private String sifre;
+    @Column(name="iban",nullable = false)
     private String iban;
-    private TextField sirketAdresi;
+    @Column(name = "sirketAdresi",nullable = false)
+    private String sirketAdresi;
+    @Column(name = "tckNo",nullable = false)
     private String tckNo;
+    @Column(name = "telNo",nullable = false)
     private String telNo;
 
     //Constructor
@@ -35,7 +45,7 @@ public class Organizator implements Serializable {
 
     }
 
-    public Organizator(Long organizatorID, List<Etkinlik> etkinlik, String adSoyad, String vergiNo, String email, String sifre, String iban, TextField sirketAdresi, String tckNo, String telNo) {
+    public Organizator(Long organizatorID, List<Etkinlik> etkinlik, String adSoyad, String vergiNo, String email, String sifre, String iban, String sirketAdresi, String tckNo, String telNo) {
         this.organizatorID = organizatorID;
         this.etkinlik = etkinlik;
         this.adSoyad = adSoyad;
@@ -104,11 +114,11 @@ public class Organizator implements Serializable {
         this.iban = iban;
     }
 
-    public TextField getSirketAdresi() {
+    public String getSirketAdresi() {
         return sirketAdresi;
     }
 
-    public void setSirketAdresi(TextField sirketAdresi) {
+    public void setSirketAdresi(String sirketAdresi) {
         this.sirketAdresi = sirketAdresi;
     }
 
