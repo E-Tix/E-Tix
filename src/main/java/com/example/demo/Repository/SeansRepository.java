@@ -2,11 +2,13 @@ package com.example.demo.Repository;
 
 import com.example.demo.Entity.Seans;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface SeansRepository extends JpaRepository<Seans, Long> {
 
     Optional<Seans> findBySeansID(Long seansID);

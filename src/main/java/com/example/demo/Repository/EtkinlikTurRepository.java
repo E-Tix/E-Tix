@@ -2,9 +2,11 @@ package com.example.demo.Repository;
 
 import com.example.demo.Entity.Etkinlik;
 import com.example.demo.Entity.EtkinlikTur;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface EtkinlikTurRepository {
 
     Optional<EtkinlikTur> findByEtkinlikTurId(Long etkinlikTurId);
