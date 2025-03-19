@@ -1,13 +1,8 @@
 package com.example.demo.Entity;
-
 import jakarta.persistence.*;
-import org.hibernate.metamodel.model.domain.internal.SetAttributeImpl;
-import org.springframework.web.context.annotation.SessionScope;
 
-import java.io.Serializable;
 
 @Entity
-@SessionScope
 @Table (name="Koltuk")
 public class Koltuk{
 

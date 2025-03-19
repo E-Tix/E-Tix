@@ -1,13 +1,9 @@
 package com.example.demo.Entity;
-
 import jakarta.persistence.*;
-import org.springframework.web.context.annotation.SessionScope;
 
-import java.io.Serializable;
 
 @Entity
 @Table(name = "salon")
-@SessionScope
 public class Salon{
 
     @Id

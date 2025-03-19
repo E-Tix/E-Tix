@@ -24,7 +24,7 @@ public class KullaniciBilet {
     public KullaniciBilet() {}
 
     public KullaniciBilet(Kullanici kullanici, Bilet bilet, String durum) {
-        this.id = new KullaniciBiletId(kullanici.getKullaniciID(), bilet.getId());
+        this.id = new KullaniciBiletId(kullanici.getKullaniciID(), bilet.getBiletID());
         this.kullanici = kullanici;
         this.bilet = bilet;
         this.durum = durum;

@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.io.Serializable;
@@ -14,9 +15,17 @@ import java.util.Set;
 public class Bilet{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private Long biletID;
-    private Boolean odendiMi;
+
+    @Column(name = "odendiMi",nullable = false)
+    private Boolean odendiMi = false;
+
+    @Column(name = "odenenMiktar")
     private Float odenenMiktar;
+
+    @CreationTimestamp
+    @Column(name = "olusturulmaZamani")
     private Timestamp olusturmaZamani;
     @OneToMany(mappedBy = "bilet")
     private ArrayList<KullaniciBilet> kullanicilar;

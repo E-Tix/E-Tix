@@ -3,8 +3,6 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 import org.springframework.web.context.annotation.SessionScope;
 
-import java.io.Serializable;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
