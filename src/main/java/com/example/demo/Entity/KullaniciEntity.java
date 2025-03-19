@@ -1,41 +1,45 @@
-package com.example.demo;
+package com.example.demo.Entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
-import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Kullanici")
-@SessionScope
-public class Kullanici{
-
+public class KullaniciEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long kullaniciID;
     @ManyToOne
-    private Sehir sehir;
+    private SehirEntity sehir;
+    
     @OneToMany(mappedBy = "kullanici")
-    private ArrayList<KullaniciBilet> biletler;
+    private List<KullaniciBiletEntity> kullaniciBiletEntityList;
 
+    @Column(name = "kullaniciAdi",nullable = false)
     private String kullaniciAdi;
+    @Column(name = "adSoyad",nullable = false)
     private String adSoyad;
+    @Column(name = "sifre",nullable = false)
     private String sifre;
+    @Column(name = "email",nullable = false)
     private String email;
+    @Column(name = "telNo",nullable = false)
     private String telNo;
 
-    public Kullanici() {}
-
-    public Kullanici(Long kullaniciID, Sehir sehir, ArrayList<KullaniciBilet> biletler, String kullaniciAdi, String adSoyad, String sifre, String email, String telNo) {
+    public KullaniciEntity(Long kullaniciID, SehirEntity sehir, List<KullaniciBiletEntity> kullaniciBiletEntityList, String kullaniciAdi, String adSoyad, String sifre, String email, String telNo) {
         this.kullaniciID = kullaniciID;
         this.sehir = sehir;
-        this.biletler = biletler;
+        this.kullaniciBiletEntityList = kullaniciBiletEntityList;
         this.kullaniciAdi = kullaniciAdi;
         this.adSoyad = adSoyad;
         this.sifre = sifre;
         this.email = email;
         this.telNo = telNo;
+    }
+
+    public KullaniciEntity() {
     }
 
     public Long getKullaniciID() {
@@ -46,20 +50,20 @@ public class Kullanici{
         this.kullaniciID = kullaniciID;
     }
 
-    public Sehir getSehir() {
+    public SehirEntity getSehir() {
         return sehir;
     }
 
-    public void setSehir(Sehir sehir) {
+    public void setSehir(SehirEntity sehir) {
         this.sehir = sehir;
     }
 
-    public ArrayList<KullaniciBilet> getBiletler() {
-        return biletler;
+    public List<KullaniciBiletEntity> getKullaniciBiletEntityList() {
+        return kullaniciBiletEntityList;
     }
 
-    public void setBiletler(ArrayList<KullaniciBilet> biletler) {
-        this.biletler = biletler;
+    public void setKullaniciBiletEntityList(ArrayList<KullaniciBiletEntity> KullaniciBiletEntityList) {
+        this.kullaniciBiletEntityList = KullaniciBiletEntityList;
     }
 
     public String getKullaniciAdi() {
@@ -100,5 +104,15 @@ public class Kullanici{
 
     public void setTelNo(String telNo) {
         this.telNo = telNo;
+    }
+
+    public void addKullaniciBiletEntityList(KullaniciBiletEntity KullaniciBiletEntityList)
+    {
+        this.kullaniciBiletEntityList.add(KullaniciBiletEntityList);
+    }
+
+    public void deleteKullaniciBiletEntityList(KullaniciBiletEntity KullaniciBiletEntityList)
+    {
+        this.kullaniciBiletEntityList.remove(KullaniciBiletEntityList);
     }
 }
