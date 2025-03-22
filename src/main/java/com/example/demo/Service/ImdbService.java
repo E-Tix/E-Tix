@@ -14,6 +14,7 @@ public class ImdbService {
         try{
             Document doc = Jsoup.connect(url).get();
             Element film = doc.select("a[href^=/title/tt]").first();
+
             if (film != null) {
                 String href = film.attr("href");
                 imdbID = href.split("/")[2];
