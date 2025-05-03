@@ -28,7 +28,7 @@ public class SeansKoltukBilet {
     public SeansKoltukBilet() {}
 
     public SeansKoltukBilet(Seans seans, Koltuk koltuk, Bilet bilet) {
-        this.seansKoltukBiletId = new SeansKoltukBiletId(seans.getSeansId(), koltuk.getKoltukId(), bilet.getBiletId());
+        this.seansKoltukBiletId = new SeansKoltukBiletId(seans.getSeansID(), koltuk.getKoltukID(), bilet.getBiletID());
         this.seans = seans;
         this.koltuk = koltuk;
         this.bilet = bilet;
